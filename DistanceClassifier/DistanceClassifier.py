@@ -198,7 +198,7 @@ def main():
     if args.VERBOSITY >= 2:
         print('\nDistanceClassifier settings:')
         for arg in sorted(args.__dict__):
-            print('{}\t=\t{}'.format(arg, args.__dict__[arg]))
+            print(('{}\t=\t{}'.format(arg, args.__dict__[arg])))
         print('')
 
     input_data = pd.read_csv(args.INPUT_FILE, sep=args.INPUT_SEPARATOR)
@@ -224,7 +224,7 @@ def main():
     dc = DistanceClassifier(d = args.D)
     # dc.fit(training_features, training_classes)
     dc.fit(input_data.drop('label',axis=1).values, input_data['label'].values)
-    print(dc.score(input_data.drop('label',axis=1).values, input_data['label'].values))
+    print((dc.score(input_data.drop('label',axis=1).values, input_data['label'].values)))
 
     # if args.VERBOSITY >= 1:
     #     print('\nTraining accuracy: {}'.format(dc.score(training_features, training_classes)))
